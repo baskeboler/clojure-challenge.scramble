@@ -1,0 +1,19 @@
+{:duct.profile/base
+ {:duct.core/project-ns clojure-challenge.scramble
+
+  :duct.router/ataraxy
+  {:routes
+   {[:get "/scramble" {{:strs [s1 s2]} :query-params}] [:clojure-challenge.scramble.handler/validate s1 s2]
+    [:post "/scramble" {req :body-params}] [:clojure-challenge.scramble.handler/validate-req req]}
+   }
+
+  :clojure-challenge.scramble.handler/validate {}
+  :clojure-challenge.scramble.handler/validate-req {}}
+
+ :duct.profile/dev   #duct/include "dev"
+ :duct.profile/local #duct/include "local"
+ :duct.profile/prod  {}
+
+ :duct.module/logging {}
+ :duct.module.web/api
+ {}}
