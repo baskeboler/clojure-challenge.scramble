@@ -12,6 +12,9 @@
     (blank? s2) true
     (blank? s1) (blank? s2)
     :else  (:ok? (reduce
+                  ;; we consume all chars from s2 and remove them from
+                  ;; s1 in each step, if the char is not found in the remaining
+                  ;; chars from s1 then the reduction completes with fail status
                   (fn [{:keys [remaining] :as res} the-char]
                     (if (some #{the-char} remaining)
                       (-> res
