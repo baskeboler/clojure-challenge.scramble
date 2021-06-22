@@ -1,6 +1,6 @@
 # clojure-challenge.scramble
 
-FIXME: description
+[![Clojure CI](https://github.com/baskeboler/clojure-challenge.scramble/actions/workflows/clojure.yml/badge.svg)](https://github.com/baskeboler/clojure-challenge.scramble/actions/workflows/clojure.yml)
 
 ## Developing
 
