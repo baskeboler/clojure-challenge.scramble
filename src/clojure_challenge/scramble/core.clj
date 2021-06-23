@@ -1,5 +1,8 @@
 (ns clojure-challenge.scramble.core
-  (:require [clojure.string :as cstr :refer [blank?]]))
+  (:require [clojure.string :as cstr :refer [blank?]]
+            [ataraxy.core :as ataraxy]
+            [integrant.core :as ig]
+            [ataraxy.response :as response]))
 
 (defn remove-first [f coll]
   "removes the first element of the collection where (f x) returns true"
@@ -22,3 +25,7 @@
                       (reduced (-> res (assoc :ok? false)))))
                   {:remaining s1 :ok? true}
                   s2))))
+
+(defmethod ig/init-key :clojure-challenge.scramble.core/scramble? [_ opts]
+  (fn [s1 s2 ]
+    {:s1 s1 :s2 s2 :result (scramble? s1 s2)}))

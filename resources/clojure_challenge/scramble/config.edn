@@ -3,12 +3,16 @@
 
   :duct.router/ataraxy
   {:routes
-   {[:get "/scramble" {{:strs [s1 s2]} :query-params}] [:clojure-challenge.scramble.handler/validate s1 s2]
-    [:post "/scramble" {req :body-params}] [:clojure-challenge.scramble.handler/validate-req req]}
-   }
+   {[:get "/scramble" {{:strs [s1 s2]} :query-params}] [:clojure-challenge.scramble.handlers/get s1 s2]
+    [:post "/scramble" {req :body-params}]             [:clojure-challenge.scramble.handlers/post req]}}
 
-  :clojure-challenge.scramble.handler/validate {}
-  :clojure-challenge.scramble.handler/validate-req {}}
+  :clojure-challenge.scramble.core/scramble?     {}
+
+  :clojure-challenge.scramble.handlers/get
+  {:scramble? #ig/ref :clojure-challenge.scramble.core/scramble?}
+
+  :clojure-challenge.scramble.handlers/post
+  {:scramble? #ig/ref :clojure-challenge.scramble.core/scramble?}}
 
  :duct.profile/dev   #duct/include "dev"
  :duct.profile/local #duct/include "local"

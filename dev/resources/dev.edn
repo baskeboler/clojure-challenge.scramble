@@ -1,1 +1,2 @@
-{}
+{:duct.server.http/jetty {:port 3000}
+ :duct.logger.timbre/brief {:min-level :debug}}
