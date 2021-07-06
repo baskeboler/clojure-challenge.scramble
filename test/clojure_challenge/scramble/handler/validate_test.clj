@@ -2,7 +2,7 @@
   (:require [clojure-challenge.scramble.handlers :as handlers]
             [clojure-challenge.scramble.core :refer [scramble?]]
             [clojure.test :refer :all]
-            [duct.module.ataraxy :as ataraxy]
+            [duct.router.ataraxy :as ataraxy]
             [ring.mock.request :as mock]
             [integrant.core :as ig]
             [duct.core :as duct]))
