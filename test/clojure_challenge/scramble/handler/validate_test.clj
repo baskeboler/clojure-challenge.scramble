@@ -2,12 +2,13 @@
   (:require [clojure-challenge.scramble.handlers :as handlers]
             [clojure-challenge.scramble.core :refer [scramble?]]
             [clojure.test :refer :all]
-            [ataraxy.core :as ataraxy]
+            [duct.module.ataraxy :as ataraxy]
             [ring.mock.request :as mock]
             [integrant.core :as ig]
             [duct.core :as duct]))
 
 
+(duct/load-hierarchy)
 
 ;; could not get the test to work with the real handler
 (defn scramble-handler [{[_ s1 s2] :ataraxy/result}]
